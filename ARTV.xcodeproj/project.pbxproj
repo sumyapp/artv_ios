@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC556ABA13F8093A00DBDA69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC556AB913F8093A00DBDA69 /* UIKit.framework */; };
+		AC556ABC13F8093A00DBDA69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC556ABB13F8093A00DBDA69 /* Foundation.framework */; };
+		AC556ABE13F8093A00DBDA69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC556ABD13F8093A00DBDA69 /* CoreGraphics.framework */; };
+		AC556AC413F8093A00DBDA69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC556AC213F8093A00DBDA69 /* InfoPlist.strings */; };
+		AC556AC613F8093A00DBDA69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC556AC513F8093A00DBDA69 /* main.m */; };
+		AC556ACA13F8093A00DBDA69 /* ARTVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC556AC913F8093A00DBDA69 /* ARTVAppDelegate.m */; };
+		AC556ACD13F8093A00DBDA69 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC556ACB13F8093A00DBDA69 /* MainWindow.xib */; };
+		AC556AD013F8093A00DBDA69 /* ARTVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC556ACF13F8093A00DBDA69 /* ARTVViewController.m */; };
+		AC556AD313F8093A00DBDA69 /* ARTVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC556AD113F8093A00DBDA69 /* ARTVViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AC556AB513F8093A00DBDA69 /* ARTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC556AB913F8093A00DBDA69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC556ABB13F8093A00DBDA69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC556ABD13F8093A00DBDA69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC556AC113F8093A00DBDA69 /* ARTV-Info.plist */ = {isa = PBXFileReference; path = "ARTV-Info.plist"; sourceTree = "<group>"; };
+		AC556AC313F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC556AC513F8093A00DBDA69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC556AC713F8093A00DBDA69 /* ARTV-Prefix.pch */ = {isa = PBXFileReference; path = "ARTV-Prefix.pch"; sourceTree = "<group>"; };
+		AC556AC813F8093A00DBDA69 /* ARTVAppDelegate.h */ = {isa = PBXFileReference; path = ARTVAppDelegate.h; sourceTree = "<group>"; };
+		AC556AC913F8093A00DBDA69 /* ARTVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTVAppDelegate.m; sourceTree = "<group>"; };
+		AC556ACC13F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		AC556ACE13F8093A00DBDA69 /* ARTVViewController.h */ = {isa = PBXFileReference; path = ARTVViewController.h; sourceTree = "<group>"; };
+		AC556ACF13F8093A00DBDA69 /* ARTVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTVViewController.m; sourceTree = "<group>"; };
+		AC556AD213F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARTVViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC556AB213F8093A00DBDA69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC556ABA13F8093A00DBDA69 /* UIKit.framework in Frameworks */,
+				AC556ABC13F8093A00DBDA69 /* Foundation.framework in Frameworks */,
+				AC556ABE13F8093A00DBDA69 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC556AAA13F8093A00DBDA69 = {
+			isa = PBXGroup;
+			children = (
+				AC556ABF13F8093A00DBDA69 /* ARTV */,
+				AC556AB813F8093A00DBDA69 /* Frameworks */,
+				AC556AB613F8093A00DBDA69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC556AB613F8093A00DBDA69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC556AB513F8093A00DBDA69 /* ARTV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC556AB813F8093A00DBDA69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC556AB913F8093A00DBDA69 /* UIKit.framework */,
+				AC556ABB13F8093A00DBDA69 /* Foundation.framework */,
+				AC556ABD13F8093A00DBDA69 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC556ABF13F8093A00DBDA69 /* ARTV */ = {
+			isa = PBXGroup;
+			children = (
+				AC556AC813F8093A00DBDA69 /* ARTVAppDelegate.h */,
+				AC556AC913F8093A00DBDA69 /* ARTVAppDelegate.m */,
+				AC556ACB13F8093A00DBDA69 /* MainWindow.xib */,
+				AC556ACE13F8093A00DBDA69 /* ARTVViewController.h */,
+				AC556ACF13F8093A00DBDA69 /* ARTVViewController.m */,
+				AC556AD113F8093A00DBDA69 /* ARTVViewController.xib */,
+				AC556AC013F8093A00DBDA69 /* Supporting Files */,
+			);
+			path = ARTV;
+			sourceTree = "<group>";
+		};
+		AC556AC013F8093A00DBDA69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC556AC113F8093A00DBDA69 /* ARTV-Info.plist */,
+				AC556AC213F8093A00DBDA69 /* InfoPlist.strings */,
+				AC556AC513F8093A00DBDA69 /* main.m */,
+				AC556AC713F8093A00DBDA69 /* ARTV-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC556AB413F8093A00DBDA69 /* ARTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC556AD613F8093A00DBDA69 /* Build configuration list for PBXNativeTarget "ARTV" */;
+			buildPhases = (
+				AC556AB113F8093A00DBDA69 /* Sources */,
+				AC556AB213F8093A00DBDA69 /* Frameworks */,
+				AC556AB313F8093A00DBDA69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARTV;
+			productName = ARTV;
+			productReference = AC556AB513F8093A00DBDA69 /* ARTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC556AAC13F8093A00DBDA69 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AC556AAF13F8093A00DBDA69 /* Build configuration list for PBXProject "ARTV" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AC556AAA13F8093A00DBDA69;
+			productRefGroup = AC556AB613F8093A00DBDA69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC556AB413F8093A00DBDA69 /* ARTV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC556AB313F8093A00DBDA69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC556AC413F8093A00DBDA69 /* InfoPlist.strings in Resources */,
+				AC556ACD13F8093A00DBDA69 /* MainWindow.xib in Resources */,
+				AC556AD313F8093A00DBDA69 /* ARTVViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC556AB113F8093A00DBDA69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC556AC613F8093A00DBDA69 /* main.m in Sources */,
+				AC556ACA13F8093A00DBDA69 /* ARTVAppDelegate.m in Sources */,
+				AC556AD013F8093A00DBDA69 /* ARTVViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC556AC213F8093A00DBDA69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC556AC313F8093A00DBDA69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AC556ACB13F8093A00DBDA69 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC556ACC13F8093A00DBDA69 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		AC556AD113F8093A00DBDA69 /* ARTVViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC556AD213F8093A00DBDA69 /* en */,
+			);
+			name = ARTVViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC556AD413F8093A00DBDA69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC556AD513F8093A00DBDA69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC556AD713F8093A00DBDA69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARTV/ARTV-Prefix.pch";
+				INFOPLIST_FILE = "ARTV/ARTV-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AC556AD813F8093A00DBDA69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARTV/ARTV-Prefix.pch";
+				INFOPLIST_FILE = "ARTV/ARTV-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC556AAF13F8093A00DBDA69 /* Build configuration list for PBXProject "ARTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC556AD413F8093A00DBDA69 /* Debug */,
+				AC556AD513F8093A00DBDA69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC556AD613F8093A00DBDA69 /* Build configuration list for PBXNativeTarget "ARTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC556AD713F8093A00DBDA69 /* Debug */,
+				AC556AD813F8093A00DBDA69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC556AAC13F8093A00DBDA69 /* Project object */;
+}
