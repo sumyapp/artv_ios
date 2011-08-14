@@ -23,14 +23,14 @@
 		AC556AB913F8093A00DBDA69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AC556ABB13F8093A00DBDA69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC556ABD13F8093A00DBDA69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AC556AC113F8093A00DBDA69 /* ARTV-Info.plist */ = {isa = PBXFileReference; path = "ARTV-Info.plist"; sourceTree = "<group>"; };
+		AC556AC113F8093A00DBDA69 /* ARTV-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARTV-Info.plist"; sourceTree = "<group>"; };
 		AC556AC313F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC556AC513F8093A00DBDA69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC556AC713F8093A00DBDA69 /* ARTV-Prefix.pch */ = {isa = PBXFileReference; path = "ARTV-Prefix.pch"; sourceTree = "<group>"; };
-		AC556AC813F8093A00DBDA69 /* ARTVAppDelegate.h */ = {isa = PBXFileReference; path = ARTVAppDelegate.h; sourceTree = "<group>"; };
+		AC556AC713F8093A00DBDA69 /* ARTV-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARTV-Prefix.pch"; sourceTree = "<group>"; };
+		AC556AC813F8093A00DBDA69 /* ARTVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTVAppDelegate.h; sourceTree = "<group>"; };
 		AC556AC913F8093A00DBDA69 /* ARTVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTVAppDelegate.m; sourceTree = "<group>"; };
 		AC556ACC13F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		AC556ACE13F8093A00DBDA69 /* ARTVViewController.h */ = {isa = PBXFileReference; path = ARTVViewController.h; sourceTree = "<group>"; };
+		AC556ACE13F8093A00DBDA69 /* ARTVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTVViewController.h; sourceTree = "<group>"; };
 		AC556ACF13F8093A00DBDA69 /* ARTVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTVViewController.m; sourceTree = "<group>"; };
 		AC556AD213F8093A00DBDA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARTVViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
