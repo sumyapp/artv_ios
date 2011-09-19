@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ARTVCameraOverlayView.h"
+#import "ARTVChannelSelectView.h"
+#import "ARTVImagePickerController.h"
 
-@interface ARTVViewController : UIViewController
-
+@interface ARTVViewController : UIViewController {
+    ARTVImagePickerController *_pickerController;
+    ARTVCameraOverlayView *_cameraOverlayView;
+}
 @end
