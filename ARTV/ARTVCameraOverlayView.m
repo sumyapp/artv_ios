@@ -18,6 +18,11 @@
     [_tweetSendView.textField setText:[NSString stringWithFormat:@" %@ #HashTV", _tweetSendView.suffixText]];
 }
 
+- (void)channelRatingDataDidChange:(NSDictionary*)ratingData {
+    LOG_METHOD
+    [_channelSelectView setChannelRatingData:ratingData];
+}
+
 #pragma mark - Initialization
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,6 +30,7 @@
     if (self) {
         // Initialization code
         _tweetStreamView = [[ARTVTweetStreamView alloc] initWithFrame:CGRectMake(0, TWEET_SEND_VIEW_HEIGHT, TWEET_STREAM_VIEW_WIDTH, TWEET_STREAM_VIEW_HEIGHT)];
+        [_tweetStreamView setDelegate:self];
         [_tweetStreamView setUserInteractionEnabled:NO];
         [self addSubview:_tweetStreamView];
 

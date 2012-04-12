@@ -17,6 +17,7 @@
     UIImageView *_backgroundImageView;
     NSString *_suffixText;
 }
+- (void)tweetSend:(id)sender;
 - (void)setKeyboardHidden:(BOOL)hidden;
 @property (retain, readwrite) NSString *suffixText;
 @property (nonatomic, readonly) UITextField *textField;

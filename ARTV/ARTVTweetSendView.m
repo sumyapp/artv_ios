@@ -27,6 +27,7 @@
         _sendButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width - SEND_BUTTON_WIDTH, 0, SEND_BUTTON_WIDTH, frame.size.height)];
         [_sendButton setBackgroundColor:[UIColor whiteColor]];
         [_sendButton setTitle:@"Send" forState:UIControlStateNormal];
+        [_sendButton addTarget:self action:@selector(tweetSend:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_sendButton];
         
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(TEXT_FIELD_MARGIN_X, TEXT_FIELD_MARGIN_Y, frame.size.width - SEND_BUTTON_WIDTH - TEXT_FIELD_MARGIN_X*2, frame.size.height - TEXT_FIELD_MARGIN_X*2)];
@@ -65,8 +66,18 @@
 
 - (void)setKeyboardHidden:(BOOL)hidden {
     LOG_METHOD
-    [_textField resignFirstResponder];
+    if(hidden) {
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight
+                                                          animated:NO];
+        [_textField resignFirstResponder];
+    }
 }
+
+- (void)tweetSend:(id)sender {
+    LOG_METHOD
+    [self setKeyboardHidden:YES];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

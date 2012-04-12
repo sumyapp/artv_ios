@@ -10,6 +10,11 @@
 
 @implementation ARTVChannelButton
 @synthesize channel = _channel;
+
+- (void)setChannelRating:(int)rating {
+    LOG_METHOD
+}
+
 - (id)init
 {
     self = [super init];

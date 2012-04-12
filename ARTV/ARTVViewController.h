@@ -1,4 +1,3 @@
-//
 //  ARTVViewController.h
 //  ARTV
 //

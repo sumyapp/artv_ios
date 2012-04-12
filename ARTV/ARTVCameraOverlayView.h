@@ -20,7 +20,7 @@
 #define TWEET_STREAM_VIEW_WIDTH (WIDTH-CHANNEL_SELECT_VIEW_WIDTH)
 #define TWEET_STREAM_VIEW_HEIGHT (HEIGHT - TWEET_SEND_VIEW_HEIGHT)
 
-@interface ARTVCameraOverlayView : UIView {
+@interface ARTVCameraOverlayView : UIView<ARTVTweetStreamViewDelegate,ARTVChannelSelectViewDelegate> {
     // チャンネルボタン
     ARTVChannelSelectView *_channelSelectView;
     

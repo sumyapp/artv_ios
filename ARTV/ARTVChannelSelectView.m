@@ -26,6 +26,7 @@
             [button setChannel:channel];
             [button setTitle:channel.channelName1Character forState:UIControlStateNormal];
             [button setBackgroundImage:[UIImage imageNamed:@"UITabBarItemBackground.png"] forState:UIControlStateNormal];
+            //[button setBackgroundImage:[UIImage imageNamed:@"UITabBarItemBackgroundSelected_5.png"] forState:UIControlStateSelected];
             [button setBackgroundImage:[UIImage imageNamed:@"UITabBarItemBackgroundSelected.png"] forState:UIControlStateSelected];
             [button addTarget:self action:@selector(channelButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];

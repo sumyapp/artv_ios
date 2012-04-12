@@ -9,6 +9,8 @@
 #import "ARTVTweetStreamView.h"
 
 @implementation ARTVTweetStreamView
+@synthesize delegate;
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.nextResponder touchesBegan:touches withEvent:event];
 }
@@ -231,6 +233,139 @@
 
 - (void)popupConnetionLostError {
     LOG_METHOD
+}
+
+
+// 視聴率系
+- (void)autoReloadChannelRatingViews:(NSTimer*)timer {
+    if(!_channelRatingGraphReloading) {
+        _channelRatingGraphReloading = YES;
+        [NSThread detachNewThreadSelector:@selector(reloadChannelRatingViews)
+                                 toTarget:self withObject:nil];
+    }
+}
+
+- (void)reloadChannelRatingViews {
+    LOG_METHOD
+    NSAutoreleasePool* pool;
+    pool = [[NSAutoreleasePool alloc]init];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    // 各ハッシュタグの出現回数を検索(有効なものだけ)
+    NSArray *channels = [ARTVChannels channels];
+    NSMutableArray *hashtags = [[[NSMutableArray alloc] init] autorelease];
+    for (ARTVChannel *channel in channels) {
+            [hashtags addObjectsFromArray:channel.hashTags];
+    }
+    
+    NSMutableArray *tweets = [[[NSMutableArray alloc] init] autorelease];
+    for (int i=1; i <= RATING_MAKED_BY/100; i++) {
+        [tweets addObjectsFromArray: [[Twitter getSearchResultsForKeywords:hashtags
+                                                            startingAtPage:i count:100] results]];
+    }
+    
+    if([tweets count] == 0) {
+        LOG(@"getSearchResultsForKeywords request are all failed");
+        [self performSelectorOnMainThread:@selector(popupConnetionLostError)
+                               withObject:nil
+                            waitUntilDone:YES];
+    }
+    
+    // 検索結果から探す
+    NSMutableDictionary *containCount = [[[NSMutableDictionary alloc] init] autorelease];
+    for (Status* status in tweets) {
+        // ハッシュタグ１個ずつ、含まれているかを計算していく
+        for (ARTVChannel *channel in channels) {
+            if([containCount objectForKey:channel.channelName] == nil) {
+                [containCount setObject:[NSNumber numberWithInt:0] forKey:channel.channelName];
+            }
+            BOOL isContain = NO;
+            for (NSString *hashtag in channel.hashTags) {
+                if(NSNotFound != [status.text rangeOfString:hashtag].location) {
+                    isContain = YES;
+                }
+            }
+            if(isContain) {
+                [containCount setObject:[NSNumber numberWithInt:([[containCount objectForKey:channel.channelName] intValue] + 1)] forKey:channel.channelName];
+            }
+        }        
+    }
+    
+    if(_channelRatingDictionary) {
+        [_channelRatingDictionary release];
+        _channelRatingDictionary = nil;
+    }    
+    _channelRatingDictionary = [[NSDictionary alloc] initWithDictionary:containCount];
+    
+    
+    [self performSelectorOnMainThread:@selector(reloadChannelRatingViewsDidEnd)
+						   withObject:nil
+						waitUntilDone:YES];
+	
+	[pool release];
+    [NSThread exit];    
+}
+- (void)reloadChannelRatingViewsDidEnd {
+    _channelRatingGraphReloading = NO;
+    
+    if(!_channelRatingDictionary) {
+        LOG(@"_channelRatingDictionary is nil");
+        return;
+    }
+    
+    // トータルを求める。とりあえず一番大きい物を求める。それを100にする
+    // 100になるようにかけたり割ったりする数値を求めて、それを各数値に当てていく。それをviewの高さにする
+    float max = -1;
+    for (NSString *key in _channelRatingDictionary) {
+        int count =  [[_channelRatingDictionary objectForKey:key] intValue];
+        if(count > max) {
+            max = count;
+        }
+    }
+    /*
+     100 = x * 113
+     x = 100 / 113
+     */
+    NSMutableDictionary *heightDic = [[[NSMutableDictionary alloc] init] autorelease];
+    float ratio = 100 / (float)max;
+    for (NSString *key in _channelRatingDictionary) {
+        int count =  [[_channelRatingDictionary objectForKey:key] intValue];
+        int height =  count * ratio;
+        [heightDic setObject:[NSNumber numberWithInt:height] forKey:key];
+        LOG(@"%@ : %d -> %d", key, count, height);
+    }
+    
+    /*
+     100を5段階にする。
+     0-9:   1
+     10-19: 2
+     20-29: 3
+     30-39: 4
+     40-49: 5
+     */
+    NSMutableDictionary *height5Dic = [[[NSMutableDictionary alloc] init] autorelease];
+    for (NSString *key in heightDic) {
+        int height = [[heightDic objectForKey:key] intValue];
+        int height5 = 0;
+        if(height < 10) {
+            height5 = 1;
+        }
+        else if(height < 20) {
+            height5 = 2;
+        }
+        else if(height < 30) {
+            height5 = 3;
+        }
+        else if(height < 40) {
+            height5 = 4;
+        }
+        else {
+            height5 = 5;
+        }
+        [height5Dic setObject:[NSNumber numberWithInt:height5] forKey:key];
+    }    
+    [delegate channelRatingDataDidChange:height5Dic];
 }
 
 #pragma mark - Initialization

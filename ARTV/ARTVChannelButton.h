@@ -11,5 +11,6 @@
 @interface ARTVChannelButton : UIButton {
     ARTVChannel *_channel;
 }
+- (void)setChannelRating:(int)rating;
 @property (retain, readwrite) ARTVChannel *channel;
 @end

@@ -23,6 +23,7 @@
 }
 - (void)channelButtonTouchUpInside:(ARTVChannelButton*)button;
 - (void)setSelectedChannelThisAppPrevLaunch;
+//- (void)setChannelRatingData:(NSDictionary*)ratingData;
 @property (assign, readwrite) id delegate;
 @end
 

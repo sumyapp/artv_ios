@@ -17,12 +17,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ARTVChannel.h"
+#import "ARTVChannels.h"
 #import "StatusSearchResult.h"
 #import "Twitter.h"
 #define CACHE_STATUS_COUNT_MAX 60
 #define GET_STATUS_COUNT_IN_ONE_REQUEST 50
 #define STATUS_AUTO_RELOAD_TIME 5.0f
 #define MAX_ROW_COUNT 8
+#define RATING_MAKED_BY 300 //視聴率取得に使うデータ数
 
 @interface ARTVTweetStreamView : UIView {
     // ツイートコンテンツ
@@ -38,10 +40,27 @@
     // ツイートの自動リロード
     NSTimer *_tweetReloadTimer;
     BOOL _reloading;
+    
+    // 視聴率系
+    BOOL _channelRatingGraphReloading;
+    NSDictionary *_channelRatingDictionary;
+    NSTimer *_ratingAutoReloadTimer;
+    
+    id delegate;
 }
+@property (assign, readwrite) id delegate;
 - (void)tweetStreamStart;
 - (void)setChannel:(ARTVChannel*)channnel;
 - (void)drawTweetLabels:(NSString*)tweet;
-- (void)tweetMoveToLeftAnimationDidStop;
+- (void)tweetMoveToLeftAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)popupConnetionLostError;
+
+// 視聴率系
+- (void)autoReloadChannelRatingViews:(NSTimer*)timer;
+- (void)reloadChannelRatingViews;
+- (void)reloadChannelRatingViewsDidEnd;
+@end
+
+@protocol ARTVTweetStreamViewDelegate <NSObject>
+- (void)channelRatingDataDidChange:(NSDictionary*)ratingData;
 @end
