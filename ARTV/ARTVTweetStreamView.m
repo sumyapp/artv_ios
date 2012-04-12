@@ -38,6 +38,15 @@
                                                        selector:@selector(autoReloadStatusSearchRelust:)
                                                        userInfo:nil
                                                         repeats:YES];
+    if(_ratingAutoReloadTimer) {
+        [_ratingAutoReloadTimer invalidate];
+        _ratingAutoReloadTimer = nil;
+    }
+    _ratingAutoReloadTimer = [NSTimer scheduledTimerWithTimeInterval:STATUS_AUTO_RELOAD_TIME
+                                                         target:self
+                                                       selector:@selector(autoReloadChannelRatingViews:)
+                                                       userInfo:nil
+                                                        repeats:YES];
 }
 
 - (void)setChannel:(ARTVChannel*)channnel {
@@ -73,7 +82,7 @@
     int xpos = 480;
     int width = size.width;
     int height = size.height;
-    float timeDuration = 4.0;
+    float timeDuration = 5.0;
     // MAX_ROWの中に収める
     int row = [_tweetLabelsArray count];
     while (row >= MAX_ROW_COUNT) {
@@ -238,7 +247,10 @@
 
 // 視聴率系
 - (void)autoReloadChannelRatingViews:(NSTimer*)timer {
+    LOG(@"autoReloadChannelRatingViews");
+    
     if(!_channelRatingGraphReloading) {
+        LOG(@"autoReloadChannelRatingViews: connect_start");
         _channelRatingGraphReloading = YES;
         [NSThread detachNewThreadSelector:@selector(reloadChannelRatingViews)
                                  toTarget:self withObject:nil];

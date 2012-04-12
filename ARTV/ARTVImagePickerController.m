@@ -7,6 +7,7 @@
 //
 
 #import "ARTVImagePickerController.h"
+#import <Twitter/Twitter.h>
 
 #define HORIZ_SWIPE_MIN 12
 #define VERT_SWIPE_MAX 8
@@ -59,4 +60,45 @@ float zoomScale = 1.0;
     }
     LOG(@"x座標:%f y座標:%f",curPt.x,curPt.y);
 }
+
+- (void)launchTwitterIOS5:(NSNotification*)notification {
+    LOG_METHOD
+    
+    if (!TWTweetComposeViewController.canSendTweet) {
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                       message:NSLocalizedString(@"cantsendtweet", nil)
+                                                      delegate:nil
+                                             cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    NSString *value = [[notification userInfo] objectForKey:@"TWEET_TEXT"];
+    TWTweetComposeViewController *twitterCtl = [[TWTweetComposeViewController alloc] init];
+    [twitterCtl setInitialText:value];
+    twitterCtl.completionHandler = ^(TWTweetComposeViewControllerResult result)  {
+        [self dismissModalViewControllerAnimated:YES];
+        
+        switch (result) {
+            case TWTweetComposeViewControllerResultCancelled:
+                break;
+                
+            case TWTweetComposeViewControllerResultDone:
+                break;
+                
+            default:
+                break;
+        }
+    };
+    [self presentModalViewController:twitterCtl animated:YES];  
+}
+
+- (void)viewDidLoad {
+    LOG_METHOD
+    [super viewDidLoad];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(launchTwitterIOS5:) name:@"LAUNCH_TWITTER_IOS5" object:nil];
+}
+
 @end

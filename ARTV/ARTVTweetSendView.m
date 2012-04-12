@@ -23,13 +23,13 @@
         // Initialization code
         _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self addSubview:_backgroundImageView];
-
+/*
         _sendButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width - SEND_BUTTON_WIDTH, 0, SEND_BUTTON_WIDTH, frame.size.height)];
         [_sendButton setBackgroundColor:[UIColor whiteColor]];
         [_sendButton setTitle:@"Send" forState:UIControlStateNormal];
         [_sendButton addTarget:self action:@selector(tweetSend:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_sendButton];
-        
+  */      
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(TEXT_FIELD_MARGIN_X, TEXT_FIELD_MARGIN_Y, frame.size.width - SEND_BUTTON_WIDTH - TEXT_FIELD_MARGIN_X*2, frame.size.height - TEXT_FIELD_MARGIN_X*2)];
         [_textField setBackgroundColor:[UIColor darkGrayColor]];
         [_textField setTextColor:[UIColor whiteColor]];
@@ -47,13 +47,17 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     LOG_METHOD
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+    //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
 
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
-    return YES;
+//     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
+//    return YES;
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSDictionary *dic = [[[NSDictionary alloc] initWithObjectsAndKeys:textField.text, @"TWEET_TEXT", nil] autorelease];
+    [notificationCenter postNotificationName:@"LAUNCH_TWITTER_IOS5" object:textField.text userInfo:dic];    
+    return NO;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {

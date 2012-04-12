@@ -69,6 +69,33 @@
     }
 }
 
+- (void)setChannelRatingData:(NSDictionary*)ratingData {
+    LOG(@"setChannelRatingData:ratingData = %@", [ratingData description]);
+    for (ARTVChannelButton *button in _channelButtons) {
+        int rate = [[ratingData objectForKey:button.channel.channelName] intValue];
+        LOG(@"channel[%@] = %d", [button.channel channelName], rate);
+        
+        NSMutableString *fileName = [[[NSMutableString alloc] init] autorelease];
+        NSMutableString *fileNameSelected = [[[NSMutableString alloc] init] autorelease];
+        
+        [fileName appendFormat:@"UITabBarItemBackground"];
+        [fileNameSelected appendFormat:@"UITabBarItemBackgroundSelected"];
+        
+        if(rate > 0 && rate <= 5) {
+            [fileName appendFormat:@"_%d.png", rate];
+            [fileNameSelected appendFormat:@"_%d.png", rate];
+        }
+        else {
+            [fileName appendFormat:@"png"];
+            [fileNameSelected appendFormat:@"png"];
+        }
+        
+        [button setBackgroundImage:[UIImage imageNamed:fileName] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:fileNameSelected] forState:UIControlStateSelected];
+        
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

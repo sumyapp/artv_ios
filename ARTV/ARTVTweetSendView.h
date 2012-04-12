@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define SEND_BUTTON_WIDTH 50
+#define SEND_BUTTON_WIDTH 0
 #define TEXT_FIELD_MARGIN_X 5
 #define TEXT_FIELD_MARGIN_Y 5
 
